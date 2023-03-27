@@ -1,8 +1,0 @@
-exportPattern("^[[:alpha:]]+")
-importFrom("grDevices", "dev.new", "dev.set", "windows", "dev.list")
-importFrom("graphics", "abline", "axis", "lines", "locator", "mtext",
-             "par", "plot", "points", "title","text", "legend", "box")
-importFrom("stats", "approx", "coef", "cpgram", "mad", "median", "nls",
-             "predict","quantile", "qqline", "qqnorm", "rnorm", "smooth.spline",
-             "var", "fft", "ar", "ts", "frequency", "is.ts", "start", "end")
-importFrom("utils", "flush.console", "data", "head","tail")
