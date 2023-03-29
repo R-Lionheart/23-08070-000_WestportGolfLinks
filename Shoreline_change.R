@@ -41,8 +41,6 @@ distance_to_baseline$position <- factor(distance_to_baseline$position,
 distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_m, x=year, color=position)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
-  # geom_smooth(method = lm, fullrange=TRUE, se=FALSE, 
-  #             color = "black", linetype = "dotdash") + 
   scale_color_manual(values = c("#036C88", "#36A886", "#DBA827"), 
                      name = "Geographic location") +
   xlab("Month-Year") + 
@@ -50,13 +48,13 @@ distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_m, 
   ggtitle("Overall Distance (m)")
 distance.plot
 
-## Calculate rates of change at each location
+## Calculate rates of change (ROC) at each location
 ROC <- distance_to_baseline %>% 
   group_by(position) %>% 
   arrange(position, year) %>% 
   mutate(rate = 100 * (distance_m - lag(distance_m))/lag(distance_m))
 
-
+## Plot rates of change by year
 ROC.plot <- ggplot(data=ROC, aes(x=year, y=rate, group=position, color = position)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
@@ -67,8 +65,20 @@ ROC.plot <- ggplot(data=ROC, aes(x=year, y=rate, group=position, color = positio
   ggtitle("Rate of Change (m/year)")
 ROC.plot
 
+## Combine plots
 all.plots <- ggarrange(distance.plot, ROC.plot, common.legend = TRUE, legend="right")
-
 annotate_figure(all.plots, top = text_grob("Shoreline Erosion at Westpoint Light State Park", 
                                       color = "black", face = "bold", size = 14))
 
+## Predict 15-year and 25-year erosion rate
+prediction <- distance_to_baseline %>%
+  separate(year, into = c("month", "year"), sep = "-") %>%
+  group_by(position) %>%
+  mutate(year = as.numeric(year)) %>%
+  mutate(time = max(year) - min(year),
+         distance_change = distance_m[year == 2022] - distance_m[year == 2006],
+         m_per_year = round(distance_change / time),
+         year_15 = m_per_year * 15,
+         year_25 = m_per_year * 25) %>%
+  select(position:year_25) %>%
+  unique()
