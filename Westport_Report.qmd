@@ -70,7 +70,7 @@ site.three <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022
 Site Four sample site measurements
 ```{r}
 site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
-                         distance_m = c(316.12, 322.01, 323.54, 35.46, 339.06, 341.74), 
+                         distance_m = c(316.12, 322.01, 323.54, 335.46, 339.06, 341.74), 
                          position = "four")
 ```
 
@@ -81,26 +81,22 @@ site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"
                          position = "five")
 ```
 
-
-
-South sample site measurements
-
+Site Six site measurements
 ```{r}
-south <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
+site.six <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
                  distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42), 
-                 position = "south")
+                 position = "six")
 ```
 
 Combine all locations to one data frame for calculations.
 
 ```{r}
-distance_to_baseline <- south %>% 
-  rbind(north) %>%
-  rbind(inflection)
+distance_to_baseline <- site.one %>% 
+  rbind(site.two, site.three, site.four, site.five, site.six)
 distance_to_baseline$year <- factor(distance_to_baseline$year,
                                     levels = c("2006", "2009", "2011", "2016", "2020", "2022"))
 distance_to_baseline$position <- factor(distance_to_baseline$position, 
-                                        levels = c("north", "inflection", "south"))
+                                        levels = c("one", "two", "three", "four", "five", "six"))
 ```
 
 ## Create plots
@@ -111,7 +107,7 @@ Plot distance by year
 distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_m, x=year, color=position)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
-  scale_color_manual(values = c("#036C88", "#36A886", "#DBA827"), 
+  scale_color_manual(values = c('#5C4E2C', '#395C51', "#036C88", "#36A886","#04A1FF", "#DBA827"), 
                      name = "Geographic location") +
   xlab("Year") + 
   ylab("Distance from Basepoint (m)") +
@@ -134,7 +130,7 @@ Plot rates of change by year
 ROC.plot <- ggplot(data=ROC, aes(x=year, y=rate, group=position, color = position)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
-  scale_color_manual(values = c("#036C88", "#36A886", "#DBA827"), 
+  scale_color_manual(values = c('#5C4E2C', '#395C51', "#036C88", "#36A886","#04A1FF", "#DBA827"), 
                      name = "Geographic location") +
   xlab("Year") + 
   ylab("Rate of Change (m/year)") +
