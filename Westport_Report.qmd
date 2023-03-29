@@ -7,11 +7,37 @@ editor: visual
 
 ## Overview here
 
-Here I can give a quick overview of my thought process and methods. An arbitrary baseline was drawn approximately 350m from shoreline. Each historical shoreline from 2006 to 2022 was measured to the baseline at three separate points, titled "north", "inflection" and "south" (see more detail below). All distance information is in meters.
+*TODO Here I can give a quick overview of my thought process and methods*. An arbitrary baseline was drawn approximately 350m from shoreline. Each historical shoreline from 2006 to 2022 was measured to the baseline at three separate points, titled "north", "inflection" and "south" (see more detail below). All distance information is in meters. Using the historical imagery, change rates were calculated at all three locations and extrapolated. From those extrapolations, erosion projections for 15 and 25 years were mapped onto the satellite images.
+
+## Relevant images
+
+Below is a 2022 satellite image of Westport Light State Park. The white line is the arbitrary baseline, and the three horizontal red lines indicate the sample site locations of north (the northernmost line), inflection (middle line) and south (southernmost line), which trace the approximate distance from the baseline to the current shoreline.
+
+![Westport Overview](images/Westport_Overview.PNG)
+
+------------------------------------------------------------------------
+
+The North site, pictured below and located at approximately 46°54'6.84"N, 124° 7'54.29"W, was chosen due to proximity to nourishment provided by the Army Corps of Engineers. This nourishment, along with **TODO add more here TODO** historically limits erosion in this area.
+
+![North Sample Site](images/North_Point.PNG)
+
+------------------------------------------------------------------------
+
+The inflection point, pictured below in the red polygon and located at approximately 46°53'49.91"N, 124° 7'48.71"W, was chosen *by visual inspection only* at the location where active erosion appears to be mitigated by Corps nourishment, along with **TODO add interesting sciencey stuff here TODO**.
+
+![Inflection Sample Site](images/Inflection_Point.PNG)
+
+------------------------------------------------------------------------
+
+The South site, pictured below and located at approximately 46°53'13.57"N, 124° 7'34.81"W, was chosen due to proximity to dynamic revetment constructed in 2021. This site characterizes an area of higher erosion risk due to **TODO add stuff about revetment here TODO**.
+
+![South Sample Site](images/South_Point.PNG)
+
+------------------------------------------------------------------------
 
 ## Setup
 
-```{r}
+```{r, output=FALSE}
 #| echo: false
 library(ggpubr)
 library(tidyverse)
@@ -19,15 +45,7 @@ library(tidyverse)
 
 ## Create data frames at each sampling position
 
-Southern benchmark at approximately 46°53'13.57"N, 124° 7'34.81"W Chosen due to proximity to dynamic revetment constructed in 2021
-
-```{r}
-south <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
-                 distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42), 
-                 position = "south")
-```
-
-Northern benchmark at approximately 46°54'6.84"N, 124° 7'54.29"W Chosen due to proximity to nourishment provided by the Army Corps of Engineers
+North sample site measurements
 
 ```{r}
 north <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
@@ -35,7 +53,7 @@ north <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                     position = "north")
 ```
 
-Inflection point at approximately 46°53'49.91"N, 124° 7'48.71"W. Chosen where active erosion appears to be mitigated by Corps nourishment, *by visual inspection only*.
+Inflection sample site measurements
 
 ```{r}
 inflection <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
@@ -43,7 +61,16 @@ inflection <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022
                          position = "inflection")
 ```
 
+South sample site measurements
+
+```{r}
+south <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
+                 distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42), 
+                 position = "south")
+```
+
 Combine all locations to one data frame for calculations.
+
 ```{r}
 distance_to_baseline <- south %>% 
   rbind(north) %>%
@@ -57,6 +84,7 @@ distance_to_baseline$position <- factor(distance_to_baseline$position,
 ## Create plots
 
 Plot distance by year
+
 ```{r}
 distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_m, x=year, color=position)) +
   geom_line(linewidth = 1) +
@@ -69,6 +97,7 @@ distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_m, 
 ```
 
 Calculate rates of change (ROC) at each location
+
 ```{r}
 ROC <- distance_to_baseline %>% 
   group_by(position) %>% 
@@ -77,6 +106,7 @@ ROC <- distance_to_baseline %>%
 ```
 
 Plot rates of change by year
+
 ```{r}
 ROC.plot <- ggplot(data=ROC, aes(x=year, y=rate, group=position, color = position)) +
   geom_line(linewidth = 1) +
@@ -89,12 +119,13 @@ ROC.plot <- ggplot(data=ROC, aes(x=year, y=rate, group=position, color = positio
 ```
 
 ## Combine plots
+
 ```{r}
 all.plots <- ggarrange(distance.plot, ROC.plot, common.legend = TRUE, legend="bottom")
 annotate_figure(all.plots, top = text_grob("Shoreline Erosion at Westpoint Light State Park", 
                                       color = "black", face = "bold", size = 14))
+all.plots
 ```
-
 
 ## Predict 15-year and 25-year erosion rate
 
@@ -102,13 +133,17 @@ annotate_figure(all.plots, top = text_grob("Shoreline Erosion at Westpoint Light
 distance_to_baseline$year <- as.numeric(as.character(distance_to_baseline$year))
 prediction <- distance_to_baseline %>%
   group_by(position) %>%
-  mutate(time = max(year) - min(year),
-         distance_change = distance_m[year == 2022] - distance_m[year == 2006],
-         m_per_year = round(distance_change / time),
-         year_15 = m_per_year * 15,
-         year_25 = m_per_year * 25) %>%
-  select(position:year_25) %>%
+  mutate(time_diff = max(year) - min(year),
+         distance_diff = distance_m[year == 2022] - distance_m[year == 2006],
+         m_change_per_year = round(distance_diff / time_diff),
+         year_15_erosion = m_change_per_year * 15,
+         year_25_erosion = m_change_per_year * 25) %>%
+  select(position:year_25_erosion) %>%
   unique()
 prediction <- prediction[order(prediction$position),]
 prediction
 ```
+
+The image below shows Westport Light State Park with the predicted 15- and 25-year erosion lines extrapolated from the calculated rates of change, along with a polygon citing the highest area of erosion risk from the shoreline armoring located in front of the Westport Condominiums.
+
+![Projected Erosion](images/Projections.PNG)
