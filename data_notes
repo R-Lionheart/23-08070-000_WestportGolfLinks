@@ -8,3 +8,6 @@ Date: "6-1990", Distance: 302.47
 
 Northern Point
 Date: "6-1990", Distance: 241.23
+
+Original dates with months included
+c("7-2006", "9-2009", "9-2011", "8-2016", "3-2020", "8-2022")
