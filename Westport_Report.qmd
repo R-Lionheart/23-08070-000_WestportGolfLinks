@@ -77,7 +77,7 @@ site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"
 Site Five sample site measurements
 ```{r}
 site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
-                         distance_m = c(), 
+                         distance_m = c(301.69, 311.98, 310.65, 332.11, 336.56, 336.16), 
                          position = "five")
 ```
 
