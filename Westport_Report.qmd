@@ -5,9 +5,16 @@ format: pdf
 editor: visual
 ---
 
+## Questions
+1. 15 year R0 is one wavelength, taken from average wavelengths at all six locations, value of 63 m.
+
+2. Where did the 10ft/year R0 northern migration come from? I have it written down...
+3. Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming protection from the logspiral, so the linear historical erosion of 75m isn't accurate, but I'm not sure where to draw that apex of the curve. 
+
+
 ## Overview here
 
-*TODO Here I can give a quick overview of my thought process and methods*. An arbitrary baseline was drawn approximately 350m from shoreline. Each historical shoreline from 2006 to 2022 was measured to the baseline at six separate points, titled sites 1-6 heading north to south (see more detail below). All distance information is in meters. Using the historical imagery, change rates were calculated at all locations and extrapolated. From those extrapolations, erosion projections for 15 and 25 years were mapped onto the satellite images.
+An arbitrary baseline was drawn approximately 350m from shoreline. Each historical shoreline from 2006 to 2022 was measured to the baseline at six separate points, titled sites 1-6 heading north to south (see more detail below). All distance information is in meters. Using the historical imagery, change rates were calculated at all locations and extrapolated. From those extrapolations, erosion projections for 15 and 25 years were mapped onto the satellite images.
 
 ## Relevant images of a selection of sites
 
@@ -15,22 +22,21 @@ Below is a 2022 satellite image of Westport Light State Park. The white line is 
 
 ![Westport Overview](figures/Westport_Overview.PNG)
 
-
 ------------------------------------------------------------------------
 
-The North site, pictured below and located at approximately 46°54'6.84"N, 124° 7'54.29"W, was chosen due to proximity to nourishment provided by the Army Corps of Engineers. This nourishment, along with **TODO add more here TODO** historically limits erosion in this area.
+The North site, pictured below and located at approximately 46°54'6.84"N, 124° 7'54.29"W, was chosen due to proximity to nourishment provided by the Army Corps of Engineers. This nourishment historically limits erosion in this area.
 
 ![Sample Site One](figures/report_1.0/Site_One.PNG)
 
 ------------------------------------------------------------------------
 
-The inflection point, pictured below in the red polygon and located at approximately 46°53'49.91"N, 124° 7'48.71"W, was chosen *by visual inspection only* at the location where active erosion appears to be mitigated by Corps nourishment, along with **TODO add interesting sciencey stuff here TODO**.
+The inflection point, pictured below in the red polygon and located at approximately 46°53'49.91"N, 124° 7'48.71"W, was chosen *by visual inspection only* at the location where active erosion appears to be mitigated by Corps nourishment.
 
 ![Sample Site Two](figures/report_1.0/Site_Two.PNG)
 
 ------------------------------------------------------------------------
 
-The South site, pictured below and located at approximately 46°53'13.57"N, 124° 7'34.81"W, was chosen due to proximity to dynamic revetment constructed in 2021. This site characterizes an area of higher erosion risk due to **TODO add stuff about revetment here TODO**.
+The South site, pictured below and located at approximately 46°53'13.57"N, 124° 7'34.81"W, was chosen due to proximity to dynamic revetment constructed in 2021. This site characterizes an area of complicated erosion risk due to the revetment and a heavily used beach access point. 
 
 ![South Sample Site](images/South_Point.PNG)
 
@@ -47,6 +53,7 @@ library(tidyverse)
 ## Create data frames at each sampling position
 
 Site One sample site measurements
+
 ```{r}
 site.one <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                     distance_m = c(322.55, 317.65, 311.69, 309.64, 316.66, 319.76), 
@@ -54,6 +61,7 @@ site.one <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022")
 ```
 
 Site Two sample site measurements (inflection point)
+
 ```{r}
 site.two <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(328.97, 332.19, 333.04, 331.54, 335.62, 337.26), 
@@ -61,6 +69,7 @@ site.two <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022")
 ```
 
 Site Three sample site measurements
+
 ```{r}
 site.three <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(324.20, 328.34, 328.67, 331.95, 337.12, 340.37), 
@@ -68,6 +77,7 @@ site.three <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022
 ```
 
 Site Four sample site measurements
+
 ```{r}
 site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(316.12, 322.01, 323.54, 335.46, 339.06, 341.74), 
@@ -75,6 +85,7 @@ site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"
 ```
 
 Site Five sample site measurements
+
 ```{r}
 site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(301.69, 311.98, 310.65, 332.11, 336.56, 336.16), 
@@ -82,6 +93,7 @@ site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"
 ```
 
 Site Six site measurements
+
 ```{r}
 site.six <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
                  distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42), 
@@ -166,15 +178,14 @@ The image below shows Westport Light State Park with the predicted 15- and 25-ye
 
 ![Projected Erosion](images/Projections.PNG)
 
+## Table of approximate wavelengths
 
-## Additional calculations for headland protection and migration
-Assuming a linear northern expansion of 1.5 m/year, a 2022 headland length of 11.96 m, and construction of the revetment in 2021, a table of *approximate* values are 
 ```{r}
-headland.expansion <- data.frame(year =  c("2021", "2022", "2037", "2047"),
-                                 expansion_m = c(0, 1.5, 22.5, 37.5), 
-                                 headland.length = c(10.46, 11.96, 34.46, 49.46))
+wavelength <- data.frame(site =  seq(1:6),
+                       wavelength = c(58.7, 56.8, 61.5, 85, 57.9, 57.7))
+avg.wavelength <- mean(wavelength$wavelength)
 ```
 
 ## Additional transects added between dyanmic revetment "headland" and inflection point.
-Distance from inflection point to 2022 headland is 1.2 km. 
 
+Distance from inflection point to 2022 headland is 1.2 km.
