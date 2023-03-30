@@ -9,7 +9,7 @@ editor: visual
 1. 15 year R0 is one wavelength, taken from average wavelengths at all six locations, value of 63 m.
 
 2. Where did the 10ft/year R0 northern migration come from? I have it written down...
-3. Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming protection from the logspiral, so the linear historical erosion of 75m isn't accurate, but I'm not sure where to draw that apex of the curve. 
+3. Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming limited protection from the logspiral, so the the apex of the curve is attributed to the 75 year linear expansion rate.
 
 
 ## Overview here
@@ -188,4 +188,4 @@ avg.wavelength <- mean(wavelength$wavelength)
 
 ## Additional transects added between dyanmic revetment "headland" and inflection point.
 
-Distance from inflection point to 2022 headland is 1.2 km.
+
