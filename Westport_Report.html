@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Regina Lionheart | Herrera Environmental Consultants">
+<meta name="dcterms.date" content="2023-06-16">
+
+<title>23-08070-000_WestportGolfLinks</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Westport_Report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Westport_Report_files/libs/quarto-html/quarto.js"></script>
+<script src="Westport_Report_files/libs/quarto-html/popper.min.js"></script>
+<script src="Westport_Report_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Westport_Report_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Westport_Report_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Westport_Report_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Westport_Report_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Westport_Report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Westport_Report_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">23-08070-000_WestportGolfLinks</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Regina Lionheart | Herrera Environmental Consultants </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 16, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>TODO: BADGES <img src="https://img.shields.io/badge/plot-dumbbell-%231D455C.png" class="img-fluid" alt="dumbbell_plot"> <img src="https://img.shields.io/badge/plot-boxplot-%231D455C.png" class="img-fluid" alt="boxplot"> <img src="https://img.shields.io/badge/plot-3D%20regression-%231D455C.png" class="img-fluid" alt="3D_regression"></p>
+<p><img src="https://img.shields.io/badge/stats-quartiles-%233ECDA3.png" class="img-fluid" alt="quartiles"> <img src="https://img.shields.io/badge/stats-HCA%20clustering-%233ECDA3.png" class="img-fluid" alt="HCA_clustering"> <img src="https://img.shields.io/badge/stats-linear%20model-%233ECDA3.png" class="img-fluid" alt="linear_model"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/style-needs%20checking-red.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">code_style</figcaption>
+</figure>
+</div>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ol type="1">
+<li><p>15 year R0 is one wavelength, taken from average wavelengths at all six locations, value of 63 m.</p></li>
+<li><p>Where did the 10ft/year R0 northern migration come from? I have it written down…</p></li>
+<li><p>Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming limited protection from the logspiral, so the the apex of the curve is attributed to the 75 year linear expansion rate.</p></li>
+</ol>
+</section>
+<section id="overview-here" class="level2">
+<h2 class="anchored" data-anchor-id="overview-here">Overview here</h2>
+<p>An arbitrary baseline was drawn approximately 350m from shoreline. Each historical shoreline from 2006 to 2022 was measured to the baseline at six separate points, titled sites 1-6 heading north to south (see more detail below). All distance information is in meters. Using the historical imagery, change rates were calculated at all locations and extrapolated. From those extrapolations, erosion projections for 15 and 25 years were mapped onto the satellite images.</p>
+</section>
+<section id="relevant-images-of-a-selection-of-sites" class="level2">
+<h2 class="anchored" data-anchor-id="relevant-images-of-a-selection-of-sites">Relevant images of a selection of sites</h2>
+<p>Below is a 2022 satellite image of Westport Light State Park. The white line is the arbitrary baseline, and the horizontal red lines indicate a selection of sample lines which trace the approximate distance from the baseline to the current shoreline.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Westport_Overview.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Westport Overview</figcaption>
+</figure>
+</div>
+<hr>
+<p>The North site, pictured below and located at approximately 46°54’6.84”N, 124° 7’54.29”W, was chosen due to proximity to nourishment provided by the Army Corps of Engineers. This nourishment historically limits erosion in this area.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/report_1.0/Site_One.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Sample Site One</figcaption>
+</figure>
+</div>
+<hr>
+<p>The inflection point, pictured below in the red polygon and located at approximately 46°53’49.91”N, 124° 7’48.71”W, was chosen <em>by visual inspection only</em> at the location where active erosion appears to be mitigated by Corps nourishment.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/report_1.0/Site_Two.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Sample Site Two</figcaption>
+</figure>
+</div>
+<hr>
+<p>The South site, pictured below and located at approximately 46°53’13.57”N, 124° 7’34.81”W, was chosen due to proximity to dynamic revetment constructed in 2021. This site characterizes an area of complicated erosion risk due to the revetment and a heavily used beach access point.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/South_Point.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">South Sample Site</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+</section>
+<section id="create-data-frames-at-each-sampling-position" class="level2">
+<h2 class="anchored" data-anchor-id="create-data-frames-at-each-sampling-position">Create data frames at each sampling position</h2>
+<p>Site One sample site measurements</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>site.one <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span>  <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>),</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">distance_m =</span> <span class="fu">c</span>(<span class="fl">322.55</span>, <span class="fl">317.65</span>, <span class="fl">311.69</span>, <span class="fl">309.64</span>, <span class="fl">316.66</span>, <span class="fl">319.76</span>), </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">position =</span> <span class="st">"one"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Site Two sample site measurements (inflection point)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>site.two <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span>  <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>),</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">distance_m =</span> <span class="fu">c</span>(<span class="fl">328.97</span>, <span class="fl">332.19</span>, <span class="fl">333.04</span>, <span class="fl">331.54</span>, <span class="fl">335.62</span>, <span class="fl">337.26</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">position =</span> <span class="st">"two"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Site Three sample site measurements</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>site.three <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span>  <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">distance_m =</span> <span class="fu">c</span>(<span class="fl">324.20</span>, <span class="fl">328.34</span>, <span class="fl">328.67</span>, <span class="fl">331.95</span>, <span class="fl">337.12</span>, <span class="fl">340.37</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">position =</span> <span class="st">"three"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Site Four sample site measurements</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>site.four <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span>  <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">distance_m =</span> <span class="fu">c</span>(<span class="fl">316.12</span>, <span class="fl">322.01</span>, <span class="fl">323.54</span>, <span class="fl">335.46</span>, <span class="fl">339.06</span>, <span class="fl">341.74</span>), </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">position =</span> <span class="st">"four"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Site Five sample site measurements</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>site.five <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span>  <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">distance_m =</span> <span class="fu">c</span>(<span class="fl">301.69</span>, <span class="fl">311.98</span>, <span class="fl">310.65</span>, <span class="fl">332.11</span>, <span class="fl">336.56</span>, <span class="fl">336.16</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">position =</span> <span class="st">"five"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Site Six site measurements</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>site.six <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year =</span> <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">distance_m =</span> <span class="fu">c</span>(<span class="fl">305.00</span>, <span class="fl">308.49</span>, <span class="fl">313.71</span>, <span class="fl">338.23</span>, <span class="fl">344.00</span>, <span class="fl">348.42</span>), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">position =</span> <span class="st">"six"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Combine all locations to one data frame for calculations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>distance_to_baseline <span class="ot">&lt;-</span> site.one <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(site.two, site.three, site.four, site.five, site.six)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>distance_to_baseline<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">factor</span>(distance_to_baseline<span class="sc">$</span>year,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"2006"</span>, <span class="st">"2009"</span>, <span class="st">"2011"</span>, <span class="st">"2016"</span>, <span class="st">"2020"</span>, <span class="st">"2022"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>distance_to_baseline<span class="sc">$</span>position <span class="ot">&lt;-</span> <span class="fu">factor</span>(distance_to_baseline<span class="sc">$</span>position, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>, <span class="st">"four"</span>, <span class="st">"five"</span>, <span class="st">"six"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-plots" class="level2">
+<h2 class="anchored" data-anchor-id="create-plots">Create plots</h2>
+<p>Plot distance by year</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>distance.plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(distance_to_baseline, <span class="fu">aes</span>(<span class="at">group=</span>position, <span class="at">y=</span>distance_m, <span class="at">x=</span>year, <span class="at">color=</span>position)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#5C4E2C'</span>, <span class="st">'#395C51'</span>, <span class="st">"#036C88"</span>, <span class="st">"#36A886"</span>,<span class="st">"#04A1FF"</span>, <span class="st">"#DBA827"</span>), </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">"Geographic location"</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Distance from Basepoint (m)"</span>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Overall Distance (m)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate rates of change (ROC) at each location</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ROC <span class="ot">&lt;-</span> distance_to_baseline <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(position) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(position, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rate =</span> <span class="dv">100</span> <span class="sc">*</span> (distance_m <span class="sc">-</span> <span class="fu">lag</span>(distance_m))<span class="sc">/</span><span class="fu">lag</span>(distance_m)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot rates of change by year</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ROC.plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>ROC, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>rate, <span class="at">group=</span>position, <span class="at">color =</span> position)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#5C4E2C'</span>, <span class="st">'#395C51'</span>, <span class="st">"#036C88"</span>, <span class="st">"#36A886"</span>,<span class="st">"#04A1FF"</span>, <span class="st">"#DBA827"</span>), </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">"Geographic location"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Rate of Change (m/year)"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Rate of Change (m/year)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="combine-plots" class="level2">
+<h2 class="anchored" data-anchor-id="combine-plots">Combine plots</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>all.plots <span class="ot">&lt;-</span> <span class="fu">ggarrange</span>(distance.plot, ROC.plot, <span class="at">common.legend =</span> <span class="cn">TRUE</span>, <span class="at">legend=</span><span class="st">"bottom"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate_figure</span>(all.plots, <span class="at">top =</span> <span class="fu">text_grob</span>(<span class="st">"Shoreline Erosion at Westpoint Light State Park"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Westport_Report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="predict-15-year-and-25-year-erosion-rate" class="level2">
+<h2 class="anchored" data-anchor-id="predict-15-year-and-25-year-erosion-rate">Predict 15-year and 25-year erosion rate</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>distance_to_baseline<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(distance_to_baseline<span class="sc">$</span>year))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> distance_to_baseline <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(position) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_diff =</span> <span class="fu">max</span>(year) <span class="sc">-</span> <span class="fu">min</span>(year),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">distance_diff =</span> distance_m[year <span class="sc">==</span> <span class="dv">2022</span>] <span class="sc">-</span> distance_m[year <span class="sc">==</span> <span class="dv">2006</span>],</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">m_change_per_year =</span> <span class="fu">round</span>(distance_diff <span class="sc">/</span> time_diff),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">year_15_erosion =</span> m_change_per_year <span class="sc">*</span> <span class="dv">15</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">year_25_erosion =</span> m_change_per_year <span class="sc">*</span> <span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(position<span class="sc">:</span>year_25_erosion) <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> prediction[<span class="fu">order</span>(prediction<span class="sc">$</span>position),]</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>prediction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+# Groups:   position [6]
+  position time_diff distance_diff m_change_per_year year_15_erosion
+  &lt;fct&gt;        &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;           &lt;dbl&gt;
+1 one             16         -2.79                 0               0
+2 two             16          8.29                 1              15
+3 three           16         16.2                  1              15
+4 four            16         25.6                  2              30
+5 five            16         34.5                  2              30
+6 six             16         43.4                  3              45
+# ℹ 1 more variable: year_25_erosion &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>The image below shows Westport Light State Park with the predicted 15- and 25-year erosion lines extrapolated from the calculated rates of change, along with a polygon citing the highest area of erosion risk from the shoreline armoring located in front of the Westport Condominiums.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Projections.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Projected Erosion</figcaption>
+</figure>
+</div>
+</section>
+<section id="table-of-approximate-wavelengths" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-approximate-wavelengths">Table of approximate wavelengths</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wavelength <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">site =</span>  <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>),</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">wavelength =</span> <span class="fu">c</span>(<span class="fl">58.7</span>, <span class="fl">56.8</span>, <span class="fl">61.5</span>, <span class="dv">85</span>, <span class="fl">57.9</span>, <span class="fl">57.7</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>avg.wavelength <span class="ot">&lt;-</span> <span class="fu">mean</span>(wavelength<span class="sc">$</span>wavelength)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="additional-transects-added-between-dyanmic-revetment-headland-and-inflection-point." class="level2">
+<h2 class="anchored" data-anchor-id="additional-transects-added-between-dyanmic-revetment-headland-and-inflection-point.">Additional transects added between dyanmic revetment “headland” and inflection point.</h2>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

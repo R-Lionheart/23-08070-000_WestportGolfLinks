@@ -1,16 +1,30 @@
 ---
-title: "Westport Erosion Predictions"
-author: "RLionheart"
-format: pdf
+title: "23-08070-000_WestportGolfLinks"
+author: "Regina Lionheart | Herrera Environmental Consultants"
+date: "`r Sys.Date()`"
+format: html
 editor: visual
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+TODO: BADGES ![dumbbell_plot](https://img.shields.io/badge/plot-dumbbell-%231D455C) ![boxplot](https://img.shields.io/badge/plot-boxplot-%231D455C) ![3D_regression](https://img.shields.io/badge/plot-3D%20regression-%231D455C)
+
+![quartiles](https://img.shields.io/badge/stats-quartiles-%233ECDA3) ![HCA_clustering](https://img.shields.io/badge/stats-HCA%20clustering-%233ECDA3) ![linear_model](https://img.shields.io/badge/stats-linear%20model-%233ECDA3)
+
+![code_style](https://img.shields.io/badge/style-needs%20checking-red)
+
+> Herrera Environmental Consultants: Placeholder for our logo or consistent header
+
 ## Questions
-1. 15 year R0 is one wavelength, taken from average wavelengths at all six locations, value of 63 m.
 
-2. Where did the 10ft/year R0 northern migration come from? I have it written down...
-3. Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming limited protection from the logspiral, so the the apex of the curve is attributed to the 75 year linear expansion rate.
+1.  15 year R0 is one wavelength, taken from average wavelengths at all six locations, value of 63 m.
 
+2.  Where did the 10ft/year R0 northern migration come from? I have it written down...
+
+3.  Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming limited protection from the logspiral, so the the apex of the curve is attributed to the 75 year linear expansion rate.
 
 ## Overview here
 
@@ -36,7 +50,7 @@ The inflection point, pictured below in the red polygon and located at approxima
 
 ------------------------------------------------------------------------
 
-The South site, pictured below and located at approximately 46°53'13.57"N, 124° 7'34.81"W, was chosen due to proximity to dynamic revetment constructed in 2021. This site characterizes an area of complicated erosion risk due to the revetment and a heavily used beach access point. 
+The South site, pictured below and located at approximately 46°53'13.57"N, 124° 7'34.81"W, was chosen due to proximity to dynamic revetment constructed in 2021. This site characterizes an area of complicated erosion risk due to the revetment and a heavily used beach access point.
 
 ![South Sample Site](images/South_Point.PNG)
 
@@ -187,5 +201,3 @@ avg.wavelength <- mean(wavelength$wavelength)
 ```
 
 ## Additional transects added between dyanmic revetment "headland" and inflection point.
-
-
