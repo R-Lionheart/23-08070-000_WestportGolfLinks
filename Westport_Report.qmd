@@ -70,7 +70,14 @@ Site One sample site measurements
 
 ```{r}
 site.one <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
-                    distance_m = c(322.55, 317.65, 311.69, 309.64, 316.66, 319.76), 
+                    distance_m = c(322.55, 317.65, 311.69, 309.64, 316.66, 319.76),
+                    position = "one")
+distance_m = c(322.55, 317.65, 311.69, 309.64, 316.66, 319.76)
+distance_f <- distance_m * 3.28084
+distance_f 
+
+site.one <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
+                    distance_f,
                     position = "one")
 ```
 
@@ -80,6 +87,11 @@ Site Two sample site measurements (inflection point)
 site.two <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(328.97, 332.19, 333.04, 331.54, 335.62, 337.26), 
                          position = "two")
+distance_m = c(328.97, 332.19, 333.04, 331.54, 335.62, 337.26)
+distance_f <- distance_m * 3.28084
+site.two <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
+                    distance_f,
+                    position = "one")
 ```
 
 Site Three sample site measurements
@@ -88,6 +100,9 @@ Site Three sample site measurements
 site.three <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(324.20, 328.34, 328.67, 331.95, 337.12, 340.37), 
                          position = "three")
+distance_m = c(324.20, 328.34, 328.67, 331.95, 337.12, 340.37)
+distance_f
+converted <- distance_m * 3.28084
 ```
 
 Site Four sample site measurements
@@ -96,6 +111,8 @@ Site Four sample site measurements
 site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(316.12, 322.01, 323.54, 335.46, 339.06, 341.74), 
                          position = "four")
+distance_m = c(316.12, 322.01, 323.54, 335.46, 339.06, 341.74)
+converted <- distance_m * 3.28084
 ```
 
 Site Five sample site measurements
@@ -104,6 +121,8 @@ Site Five sample site measurements
 site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                          distance_m = c(301.69, 311.98, 310.65, 332.11, 336.56, 336.16), 
                          position = "five")
+distance_m = c(301.69, 311.98, 310.65, 332.11, 336.56, 336.16)
+converted <- distance_m * 3.28084
 ```
 
 Site Six site measurements
@@ -112,6 +131,9 @@ Site Six site measurements
 site.six <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
                  distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42), 
                  position = "six")
+
+distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42)
+converted <- distance_m * 3.28084
 ```
 
 Combine all locations to one data frame for calculations.

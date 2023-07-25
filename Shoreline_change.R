@@ -72,7 +72,7 @@ annotate_figure(all.plots, top = text_grob("Shoreline Erosion at Westpoint Light
 
 ## Predict 15-year and 25-year erosion rate
 prediction <- distance_to_baseline %>%
-  separate(year, into = c("month", "year"), sep = "-") %>%
+  #separate(year, into = c("month", "year"), sep = "-") %>%
   group_by(position) %>%
   mutate(year = as.numeric(year)) %>%
   mutate(time = max(year) - min(year),
