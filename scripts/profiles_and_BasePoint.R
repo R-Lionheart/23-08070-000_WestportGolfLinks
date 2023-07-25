@@ -3,12 +3,7 @@
 ## January 2023
 ## Shoreline Conservation Areas, Washington State Parks
 
-#source("scripts/load_packages.R")
-
-## Would need to interpolate Base Point data from John's CAD to get a complete picture.
-## The quality of data is variable- does midpoint euclidean gloss over the data too much?
-
-profile.pattern <- "prof_6|prof_7|prof_8|prof_9"
+profile.pattern <- "prof_16|prof_17"
 source("scripts/src/import_profiles2.R")
 source("scripts/src/assign_profile_parks.R")
 

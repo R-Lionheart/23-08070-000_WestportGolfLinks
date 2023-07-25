@@ -6,10 +6,8 @@
 ## Take quartile points along profile linear models,
 ## and use euclidean distance to BasePoint as the change rate.
 
-profile.pattern <- "prof"
 
 source("scripts/src/load_packages.R")
-#source("scripts/src/import_profiles.R")
 source("scripts/src/assign_profile_parks.R")
 
 
@@ -62,11 +60,7 @@ quartile.rates <- euc.quartile.distances %>%
   select(profile:year, contains("dist")) %>%
   group_by(profile) %>%
   arrange(profile, year) %>%
-  mutate(across(min_dist_to_BP:max_dist_to_BP, ~ (100 * (.x - dplyr::lag(.x))/lag(.x)), .names = "yearly_ROC_{.col}"))# %>%
-  # ungroup() %>%
-  # group_by(profile) %>%
-  # mutate(across(min_dist_to_BP:max_dist_to_BP, ~ (100 * ((.x[year==last(year)] - .x[year==first(year)])/.x[year==first(year)])),
-  #               .names = "total_ROC_{.col}"))
+  mutate(across(min_dist_to_BP:max_dist_to_BP, ~ (100 * (.x - dplyr::lag(.x))/lag(.x)), .names = "yearly_ROC_{.col}"))
 
 quartile.rates.long <- quartile.rates %>%
   select(profile:year, contains("ROC")) %>%
@@ -78,8 +72,7 @@ mean.rate.df <- quartile.rates %>%
   drop_na() %>%
   group_by(profile, year) %>%
   mutate(mean_yearly_rate = mean(yearly_ROC_min_dist_to_BP:yearly_ROC_max_dist_to_BP)) %>%
-  #mutate(mean_total_rate = mean(total_ROC_min_dist_to_BP:total_ROC_max_dist_to_BP)) %>%
-  select(profile, Park, year, rate_of_change = mean_yearly_rate) %>%#, total_rate_of_change = mean_total_rate) %>%
+  select(profile, Park, year, rate_of_change = mean_yearly_rate) %>%
   mutate(quartile = "mean")
 
 ## Combine for a complete df of quartile rates with mean
@@ -109,27 +102,6 @@ profile.ROC.plot <- ggplot(data = all.quartile.rates %>% drop_na(),
   theme(axis.text.x = element_blank()) +
   ggtitle("Individual Profile Rates of Change") 
 profile.ROC.plot
-
-## Group the rates by park
-# park.quartile.rates <- quartile.rates.long %>%
-#   rbind(mean.rate.df) %>%
-#   arrange(profile, year) %>%
-#   mutate(profile_direction = ifelse(rate_of_change > 0, "Accretion", "Erosion")) %>%
-#   separate(Park, into = c("Park", "Region"), sep = ",")
-
-## Write ROC by NANOOS-defined region
-#write.csv(park.quartile.rates, "data_secondary/NANOOSRegions_with_quartROC.csv", row.names = FALSE)
-
-## Plot each rate of change for the three NANOOS-defined regions
-# region.ROC.plot <- ggplot(data = park.quartile.rates %>% drop_na(),
-#                             aes(x = year, y = rate_of_change, fill = profile_direction)) +
-#   facet_wrap(~Region, scales = "free") +
-#   geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
-#   scale_fill_manual(values=c("#04A1FF", "tomato2")) +
-#   theme(axis.text.x = element_blank()) +
-#   ggtitle("Combined Rates of Change per Region")
-# region.ROC.plot
-
 
 # Annualized ROC ----------------------------------------------------------
 ## Use the median of each transect and find the euclidean distance to the basepoint.
