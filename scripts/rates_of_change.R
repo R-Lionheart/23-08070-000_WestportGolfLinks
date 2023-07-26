@@ -12,6 +12,7 @@ source("scripts/src/assign_profile_parks.R")
 
 ## Acquire slope and intercept for all profiles/years
 complete.lm.df <- complete.profile %>%
+  drop_na() %>%
   group_by(profile, year) %>%
   do(model = lm(y ~ x, data = .)) %>%
   mutate(intercept = coef(model)[1],
@@ -95,10 +96,11 @@ write.csv(all.quartile.rates, "data_secondary/profiles_with_quartROC.csv", row.n
 ## Plot each rate of change for each profile
 profile.ROC.plot <- ggplot(data = all.quartile.rates %>% drop_na(),  
                            aes(x = year, y = rate_of_change, fill = profile_direction)) +
+  coord_flip() +
   facet_wrap(~profile) +
   geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
   scale_fill_manual(values=c("#04A1FF", "tomato2")) +
-  theme(axis.text.x = element_blank()) +
+  #theme(axis.text.x = element_blank()) +
   ggtitle("Individual Profile Rates of Change") 
 profile.ROC.plot
 

@@ -1,30 +1,3 @@
----
-title: "Department of Ecology Shoreline Monitoring Profiles"
-subtitle: "Herrera Environmental Consultants"
-author: 
-- "2200 6th Ave #1100, Seattle WA 98121 | (206) 441-9080"
-date: "`r Sys.Date()`"
-output:
-  pdf_document: 
-    toc: true
-    toc_depth: 2
-    number_sections: true
-    keep_tex: yes
-editor_options: 
-  markdown: 
-    wrap: sentence
-latex_engine: pdflatex
-always_allow_html: yes 
-classoption: landscape
-header-includes:
-  \usepackage{helvet}
-  \renewcommand\familydefault{\sfdefault}
-include-before:
-- '`\newpage{}`{=latex}'
----
-
-\let\oldsection\section
-\renewcommand\section{\clearpage\oldsection}
 
 
 # Overview
@@ -296,6 +269,7 @@ source("scripts/single_linear_quartiles.R")
 single.linear.plot
 single.quartiles.plot
 ```
+
 ```{r single_linear_quartiles17, echo=FALSE}
 profile.pattern <- "prof_17"
 year.pattern <- "00"
@@ -314,7 +288,7 @@ EucDist2 is the more recent year, and EucDist1 is the older year. This is calcul
 For each profile, the average rate of change (ROC) between all quartiles is taken. 
 
 ```{r rates_of_change, echo=FALSE}
-profile.pattern <- "prof_16|prof_17"
+profile.pattern <- "prof_17"
 source("scripts/rates_of_change.R")
 profile.ROC.plot
 annualized.median.plot

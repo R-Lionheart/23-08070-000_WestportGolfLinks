@@ -26,11 +26,11 @@ all.basepoint.plot
 
 # Zoom in on a specific profile to see what's happening
 partial.visual <- profile.midpoints %>%
-  filter(profile %in% c(6) & year == "98")
+  filter(profile %in% c(16) & year == "98")
 
 single.basepoint.plot <- ggplot(data = partial.visual %>% group_by(profile, year)) +
   geom_point(aes(x = x, y = y), alpha = 0.5) +
   geom_point(aes(x = BasePoint_X, y = BasePoint_Y), color = "red", size = 3) +
-  ggtitle("Profile 6")
+  ggtitle("Profile 16")
 single.basepoint.plot
 

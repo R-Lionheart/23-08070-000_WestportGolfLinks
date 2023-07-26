@@ -41,7 +41,7 @@ wash.data <- read_csv("data_raw/NANOOS_WCEHA_validation.csv",
 
 ## Combine
 complete.profile <- profile.erosion %>%
-  full_join(profiles.df, by = "profile", multiple = "all") %>%
+  full_join(profiles.df, by = "profile") %>%
   left_join(wash.data, by = "profile") %>%
   left_join(og.profile.erosion, by = "profile") %>%
   select(profile, Park, MHHW, BasePoint_X, BasePoint_Y, season:z) %>%
