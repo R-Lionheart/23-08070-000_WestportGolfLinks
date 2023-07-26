@@ -20,6 +20,17 @@ single.linear.plot <- ggplot(data = single.profile, aes(x = x, y = y, group = ye
   ggtitle(paste("Profile:", profile.pattern, "Year:", year.pattern))
 single.linear.plot
 
+# TEST
+# single.profile %>%
+#   ggplot(aes(x=x, y=y, fill=year)) +
+#   geom_boxplot() +
+#   geom_jitter(color="black", size=0.4, alpha=0.9) +
+#   ggtitle("A boxplot with jitter") +
+#   xlab("")
+# summary(single.profile$x)
+# summary(single.profile$y)
+# summary(single.profile$z)
+
 
 # Use grouped linear model for a single profile/year  -----------------------
 

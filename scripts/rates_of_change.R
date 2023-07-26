@@ -6,7 +6,7 @@
 ## Take quartile points along profile linear models,
 ## and use euclidean distance to BasePoint as the change rate.
 
-
+source("scripts/src/import_profiles.R")
 source("scripts/src/assign_profile_parks.R")
 
 
@@ -50,7 +50,8 @@ euc.quartile.distances <- quartiles.df %>%
   mutate(q1_dist_to_BP = sqrt(((BasePoint_X - x_quartile1)^2) + ((BasePoint_Y -  y_quartile1)^2))) %>%
   mutate(med_dist_to_BP = sqrt(((BasePoint_X - x_median)^2) + ((BasePoint_Y -  y_median)^2))) %>%
   mutate(q3_dist_to_BP = sqrt(((BasePoint_X - x_quartile3)^2) + ((BasePoint_Y -  y_quartile3)^2))) %>%
-  mutate(max_dist_to_BP = sqrt(((BasePoint_X - x_max)^2) + ((BasePoint_Y -  y_max)^2)))
+  mutate(max_dist_to_BP = sqrt(((BasePoint_X - x_max)^2) + ((BasePoint_Y -  y_max)^2))) %>%
+  mutate(across(min_dist_to_BP:max_dist_to_BP, ~ (.x * 3.28084)))
 
 write.csv(euc.quartile.distances %>% select(profile:year, contains("dist")), "data_secondary/profiles_with_quartile_distance.csv", 
           row.names = FALSE)
@@ -94,9 +95,8 @@ all.quartile.rates <- quartile.rates.long %>%
 write.csv(all.quartile.rates, "data_secondary/profiles_with_quartROC.csv", row.names = FALSE)
 
 ## Plot each rate of change for each profile
-profile.ROC.plot <- ggplot(data = all.quartile.rates %>% drop_na(),  
+profile.ROC.plot <- ggplot(data = all.quartile.rates %>% drop_na() %>% filter(quartile == "mean"),  
                            aes(x = year, y = rate_of_change, fill = profile_direction)) +
-  coord_flip() +
   facet_wrap(~profile) +
   geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
   scale_fill_manual(values=c("#04A1FF", "tomato2")) +
