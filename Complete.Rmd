@@ -1,20 +1,17 @@
 
-
 # Overview
 
 ## Project description
 
 This analysis aims to characterize approximately 25 years of shoreline profile transect data, provided by NANOOS (Northwest Association of Networked Ocean Observing Systems).
-Using this data combined with area expertise, the relevant coastal areas have been delineated into reaches.
 
-The raw data consists of approximately 4500 individual profiles across 54 coastal sites in Washington and Oregon.
+This repository focuses specifically on Westport Light State Park, profiles 16 and 17 drawn from raw data consisting of approximately 4500 individual profiles across 54 coastal sites in Washington and Oregon.
+
 The profiles are in x y z format (Easting Northing elevation).The naming convention is prof_X_ssYY.out where prof is short for profile, X is the profile number, ss is a season code (e.g. f = fall) and YY is the year, in the format of the last two digits (e.g. "98" is 1998", "00" is 2000, "08" is 2008, etc).
 
 ## Data discrepancies
 
-Quite a few profiles are null (empty) and have been removed and noted.
-See the "Explore Profiles" section for more information.
-
+Profiles that are null are removed. 
 A small portion of the profiles had non-conforming filenames: "BigE06", "beachface", etc.
 These files do not represent a large percentage of the files and have not been included in the analysis.
 
@@ -28,17 +25,19 @@ The vertical datum is NAVD88.
 The horizontal is WA State Plane South.
 All of the units are in meters.
 
-```{r knit_setup, include=FALSE}
-## Script Setup
-source("scripts/src/kableExtrafunction.R")
+**The profiles are converted to feet/year for this Westport analysis. They are in meters/year for the WA State analysis.**
 
-knitr::opts_chunk$set(
-  echo = FALSE,
-  warning = FALSE,
-  message = FALSE
-  )
-options(knitr.kable.NA = "") 
-```
+# ```{r knit_setup, include=FALSE}
+# ## Script Setup
+# source("scripts/src/kableExtrafunction.R")
+# 
+# knitr::opts_chunk$set(
+#   echo = FALSE,
+#   warning = FALSE,
+#   message = FALSE
+#   )
+# options(knitr.kable.NA = "") 
+# ```
 
 ```{r load_packages, include=FALSE, echo=FALSE, results='hide'}
 ## Load required packages
@@ -73,27 +72,14 @@ profiles.w.location %>%
 
 # Individual profiles, single year visualization
 
-Below is a rendering of a single profile for a single year (in this case, profile 17, located near Westport Light State Park).
+Below is a rendering of a single profile for a single year.
 
 This is a direct plot of the x y z coordinates to understand the general idea of the data format.
 It is *not* a geographic representation of the data.
 
-```{r single_profile16_visualization, echo=FALSE}
+```{r single_profile_visualization, echo=FALSE}
 ## Modify profile.pattern to select a given profile
 profile.pattern <- "prof_16"
-
-## Modify year.pattern to select a given year
-year.pattern <- c("99")
-
-## Render the chosen profile in 3D
-source("scripts/single_profile_3D.R")
-
-suppressWarnings(single.profile.plot)
-```
-
-```{r single_profile17_visualization, echo=FALSE}
-## Modify profile.pattern to select a given profile
-profile.pattern <- "prof_17"
 
 ## Modify year.pattern to select a given year
 year.pattern <- c("99")
@@ -106,18 +92,10 @@ suppressWarnings(single.profile.plot)
 
 # Individual profiles, all available years visualization
 
-Below is a rendering of a single profile (again, profile 17 from Westport State Light) over all the available years.
+Below is a rendering of a single profile.
 The orange horizontal plane represents the approximate mean high high water (MHHW) mark, as a proxy for understanding how the transect data is shifting over time.
 
-```{r complete_profile16_visualization, echo=FALSE}
-profile.pattern <- "prof_16"
-
-source("scripts/complete_profile_plane.R")
-
-suppressWarnings(print(complete.profile.plot))
-```
-
-```{r complete_profile17_visualization, echo=FALSE}
+```{r complete_profile_visualization, echo=FALSE}
 profile.pattern <- "prof_17"
 
 source("scripts/complete_profile_plane.R")
@@ -129,17 +107,8 @@ suppressWarnings(print(complete.profile.plot))
 
 It can also be helpful to see the above plot spread over time, to provide a clearer picture of profile migration.
 
-```{r complete_profile16_timeseries, echo=FALSE}
+```{r complete_profile_timeseries, echo=FALSE}
 profile.pattern <- "prof_16"
-
-source("scripts/complete_profile_timeseries.R")
-
-suppressWarnings(print(profile.timeseries.fig))
-
-```
-
-```{r complete_profile17_timeseries, echo=FALSE}
-profile.pattern <- "prof_17"
 
 source("scripts/complete_profile_timeseries.R")
 

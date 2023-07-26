@@ -33,7 +33,7 @@ single.profile.plot <- plot_ly(prof.data, x = ~x, y = ~y, z = ~z,
     scene = list(xaxis = list(title = "x"),
                  yaxis = list(title = "y"),
                  zaxis = list(title = "z")),
-    title = list(text = "Westport Light State Park: North"),
+    title = list(text = "Westport Light State Park: North", y = 0.9),
     legend = levels(year))
 
 single.profile.plot

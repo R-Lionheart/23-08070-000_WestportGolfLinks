@@ -1,10 +1,6 @@
 ## RLionheart
-## P21-0771-001
 ## March 2023
 ## Shoreline Conservation Areas, Washington State Parks
-
-
-#profile.pattern <- "prof_22"
 
 # Import all files --------------------------------------------------
 source("scripts/src/import_profiles.R")
@@ -27,7 +23,7 @@ profile.timeseries.fig <- plot_ly(prof.data, x = ~x, y = ~as.numeric(year), z = 
     scene = list(xaxis = list(title = "Position", showticklabels = FALSE),
                  yaxis = list(title = "Year"),
                  zaxis = list(title = "Elevation")),
-    title = list(text = paste("Profile:", profile.pattern), y = 0.95),
+    title = list(text = "Westport Light North", y = 0.95),
     legend = levels(year),
     showlegend = FALSE)
 
