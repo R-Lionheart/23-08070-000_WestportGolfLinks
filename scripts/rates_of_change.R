@@ -7,7 +7,6 @@
 ## and use euclidean distance to BasePoint as the change rate.
 
 
-source("scripts/src/load_packages.R")
 source("scripts/src/assign_profile_parks.R")
 
 
