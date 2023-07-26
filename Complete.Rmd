@@ -159,30 +159,6 @@ midpoint.euc.dist.plot
 ```
 
 
-
-# Assign status to each profile according to linear regression equation details.
-
-Below is a table with the relevant results of each profile's linear regression over time, including pvalues (less than 0.05 indicates a significant relationship), rsquared values (indicitive of how good the fit of the regression is) and the Pearson correlation (how closely are time and euclidean distance, or x and y, related).
-
-```{r linear_parameters, echo=FALSE}
-results.table %>% 
-  knitr::kable(
-    caption = "Linear equation parameters",
-    format = "latex",
-    booktabs = TRUE,
-    longtable = TRUE,
-    linesep = "",
-    align = "l"
-    ) %>%
-  kableExtra::kable_styling(
-      position = "left",
-      latex_options = c("striped", "repeat_header", "scale_down"),
-      stripe_color = "gray!15",
-      fixed_thead = TRUE
-    )
-results.table
-```
-
 # Comparison of results to Washington Coastal Erosion Hazard Assessment (WCEHA)
 
 The WCEHA (<https://waecy.maps.arcgis.com/apps/View/index.html?appid=389d0a3ce642485db912d4a416a56e25>) is a second database that can be used as a comparison to the results from the NANOOS profiles.
@@ -190,23 +166,6 @@ The WCEHA (<https://waecy.maps.arcgis.com/apps/View/index.html?appid=389d0a3ce64
 ```{r WCEHA_validation, echo=FALSE}
 source("scripts/WCEHA_validation.R")
 
-all.data <- all.data %>% 
-  knitr::kable(
-    caption = "Comparison with WCEHA data",
-    format = "latex",
-    booktabs = TRUE,
-    longtable = TRUE,
-    linesep = "",
-    align = "l"
-    ) %>%
-  kableExtra::kable_styling(
-      position = "left",
-      latex_options = c("scale_down", "repeat_header"),
-      stripe_color = "gray!15",
-      fixed_thead = TRUE
-    ) %>%
-  row_spec(which(all.data$conflict == "flag"), bold = T, color = "white",
-           background = "red")
 all.data
 
 ```
@@ -230,17 +189,8 @@ Below are images of a single profile and year to see the applied linear regressi
 
 These quartiles are labeled "minimum", "quartile1", "median", "quartile3", and "maximum" in accordance with standard boxplot parameters, although they are calculated using *only distance* and not boxplot delineations.
 
-```{r single_linear_quartiles16, echo=FALSE}
+```{r single_linear_quartiles, echo=FALSE}
 profile.pattern <- "prof_16"
-year.pattern <- "00"
-
-source("scripts/single_linear_quartiles.R")
-single.linear.plot
-single.quartiles.plot
-```
-
-```{r single_linear_quartiles17, echo=FALSE}
-profile.pattern <- "prof_17"
 year.pattern <- "00"
 
 source("scripts/single_linear_quartiles.R")
