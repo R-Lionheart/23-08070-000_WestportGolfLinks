@@ -77,7 +77,7 @@ midpoint.euc.dist.plot <- ggplot(toplot %>% drop_na(),
                                  aes(year, feet_to_BP, 
                                      fill = shoreline_profile, group = shoreline_profile)) +
   scale_fill_manual(values=c("grey55", "grey54", "#04A1FF", "tomato2", "grey")) +
-  facet_wrap(~profile) +
+  facet_wrap(~Park) +
   geom_col(position = position_dodge(width = 1)) +
   geom_line(aes(group = shoreline_profile), position = position_dodge(width = 1),
             linewidth = 1, color = "black") +

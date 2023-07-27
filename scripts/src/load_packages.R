@@ -7,6 +7,7 @@ required_Packages_Install <- c("broom",
                                "factoextra",
                                "kableExtra",
                                "plotly",
+                               #"reticulate",
                                "tidyverse")
 
 for(Package in required_Packages_Install) {

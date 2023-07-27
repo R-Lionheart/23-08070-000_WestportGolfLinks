@@ -98,9 +98,9 @@ write.csv(all.quartile.rates, "data_secondary/profiles_with_quartROC.csv", row.n
 profile.ROC.plot <- ggplot(data = all.quartile.rates %>% drop_na() %>% filter(quartile == "mean"),  
                            aes(x = year, y = rate_of_change, fill = profile_direction)) +
   facet_wrap(~profile) +
-  geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
+  geom_line(group = "Park") +
+  #geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
   scale_fill_manual(values=c("#04A1FF", "tomato2")) +
-  #theme(axis.text.x = element_blank()) +
   ggtitle("Individual Profile Rates of Change") 
 profile.ROC.plot
 

@@ -101,8 +101,10 @@ profile.pattern <- "prof_16"
 source("scripts/complete_profile_timeseries.R")
 
 suppressWarnings(print(profile.timeseries.fig))
+write.csv(prof.data, "data_secondary/python_profiles.csv", row.names = FALSE)
 
 ```
+
 
 # The "BasePoint" reference line and Euclidean distance as an accretion/erosion proxy
 
@@ -145,24 +147,6 @@ profile.pattern <- "prof"
 source("scripts/midpoint_euclidean_distance.R")
 midpoint.euc.dist.plot
 ```
-
-
-# Comparison of results to Washington Coastal Erosion Hazard Assessment (WCEHA)
-
-The WCEHA (<https://waecy.maps.arcgis.com/apps/View/index.html?appid=389d0a3ce642485db912d4a416a56e25>) is a second database that can be used as a comparison to the results from the NANOOS profiles.
-
-```{r WCEHA_validation, echo=FALSE}
-source("scripts/WCEHA_validation.R")
-
-all.data
-
-```
-
-## Some notes on comparisons between the NANOOS analysis and the WCEHA data
-
--   Profiles 16 and 17 (Westport Light North and South)
-
-    -   Both profiles' NANOOS classification of "accretion" conflicts with the WCEHA classifcation of "erosion". It's true that Westport North is eroding overall, but WCEHA contains data from 2006 - 2019, and NANOOS contains data from 1997 - 2022. NANOOS incorporates the geomorphologically impactful Army Corp nourishment more holistically. Both of the Westport profiles were "non significant" accretion, and speaks to the volatility of shorelines on the peninsula.
     
     
 # Quartile Points and Change Rates

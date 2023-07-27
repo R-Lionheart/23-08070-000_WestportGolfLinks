@@ -3,6 +3,7 @@
 ## Shoreline Conservation Areas, Washington State Parks
 
 # Import all files --------------------------------------------------
+profile.pattern <- "prof_17"
 source("scripts/src/import_profiles.R")
 
 
