@@ -105,6 +105,10 @@ write.csv(prof.data, "data_secondary/python_profiles.csv", row.names = FALSE)
 
 ```
 
+```{r profiles over years}
+source("scripts/profiles_over_years.R")
+profile.plot
+```
 
 # The "BasePoint" reference line and Euclidean distance as an accretion/erosion proxy
 
@@ -179,8 +183,12 @@ EucDist2 is the more recent year, and EucDist1 is the older year. This is calcul
 For each profile, the average rate of change (ROC) between all quartiles is taken. 
 
 ```{r rates_of_change, echo=FALSE}
-profile.pattern <- "prof_16"
+profile.pattern <- "prof_17"
 source("scripts/rates_of_change.R")
 profile.ROC.plot
 annualized.median.plot
+```
+
+```{r dsttobp, echo=FALSE}
+source("scripts/distance_to_BP.R")
 ```
