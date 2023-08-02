@@ -25,3 +25,13 @@ tplot <- ggplot(t, aes(year, feet_to_BP, group = Park, color = Park)) +
   ggtitle("Distance from Baseline")
 tplot
 ###
+
+## Rates for 
+minirates <- t %>%
+  filter(year %in% c("06", "21", "22")) %>%
+  filter(profile != 17 | year != "21") %>%
+  group_by(profile) %>%
+  mutate(diff = round(feet_to_BP[year %in% c("21", "22")] - feet_to_BP[year == "06"], digits = 2)) %>%
+  mutate(rates = ifelse(profile == 16, round(diff/16, digits = 2), round(diff/17, digits = 2)))
+
+

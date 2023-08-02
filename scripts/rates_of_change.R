@@ -97,11 +97,11 @@ write.csv(all.quartile.rates, "data_secondary/profiles_with_quartROC.csv", row.n
 ## Plot each rate of change for each profile
 profile.ROC.plot <- ggplot(data = all.quartile.rates %>% drop_na() %>% filter(quartile == "mean"),  
                            aes(x = year, y = rate_of_change, fill = profile_direction)) +
-  facet_wrap(~profile) +
-  geom_line(group = "Park") +
-  #geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
+  facet_wrap(~Park) +
+  #geom_bar(group = "Park") +
+  geom_bar(position = "dodge", stat = "identity", width = 1, color = "black") +
   scale_fill_manual(values=c("#04A1FF", "tomato2")) +
-  ggtitle("Individual Profile Rates of Change") 
+  ggtitle("Rates of Change: Transect Midpoint Movement Over Time") 
 profile.ROC.plot
 
 # Annualized ROC ----------------------------------------------------------

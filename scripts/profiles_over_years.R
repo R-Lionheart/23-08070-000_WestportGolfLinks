@@ -9,7 +9,7 @@ profile <- complete.profile %>%
   filter(year == 15) 
 
 
-profile.plot <- ggplot(profile.plot, aes(x = x, y = y, color = year)) +
+profile.plot <- ggplot(profile, aes(x = x, y = y, color = year)) +
   geom_line()
 
 
