@@ -188,7 +188,12 @@ source("scripts/rates_of_change.R")
 profile.ROC.plot
 annualized.median.plot
 ```
-
-```{r dsttobp, echo=FALSE}
+Westport Report Section 4.1 Results:
+```{r ecology_transects, echo=FALSE}
 source("scripts/distance_to_BP.R")
+```
+
+Westport Report Section 4.2 Results:
+```{r satellite_transects, echo=FALSE}
+source("scripts/Shoreline_change.R")
 ```

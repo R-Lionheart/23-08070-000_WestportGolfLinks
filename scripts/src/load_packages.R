@@ -5,6 +5,7 @@
 required_Packages_Install <- c("broom",
                                "data.table",
                                "factoextra",
+                               "ggpubr",
                                "ggthemes",
                                "kableExtra",
                                "plotly",
@@ -16,4 +17,3 @@ for(Package in required_Packages_Install) {
   }
   suppressWarnings(library(Package, character.only = TRUE))
 }
-

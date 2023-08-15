@@ -2,13 +2,10 @@
 ## Westport Golf Links
 ## March 2023
 
-library(tidyverse)
-library(ggpubr)
-library(ggthemes)
 
 ## Arbitrary baseline was drawn approximately 350m from shoreline
 ## Each historical shoreline from 2006 to present was measured to the baseline.
-## All info is in meters.
+## All info is in meters (but has been converted to feet).
 
 
 ## Southern benchmark at approximately 46°53'13.57"N, 124° 7'34.81"W

@@ -6,7 +6,7 @@ source("scripts/src/assign_profile_parks.R")
 
 
 ### test
-t <- complete.profile %>%
+ecology_stations <- complete.profile %>%
   group_by(profile, year) %>%
   mutate(xmean = mean(x),
          ymean = mean(y),
@@ -16,7 +16,7 @@ t <- complete.profile %>%
   select(profile, Park, year, feet_to_BP) %>%
   unique()
 
-tplot <- ggplot(t, aes(year, feet_to_BP, group = Park, color = Park)) +
+ecology_plot <- ggplot(ecology_stations, aes(year, feet_to_BP, group = Park, color = Park)) +
   geom_line() +
   geom_smooth() +
   xlab("Year") +
@@ -24,11 +24,11 @@ tplot <- ggplot(t, aes(year, feet_to_BP, group = Park, color = Park)) +
   guides(fill=guide_legend(title="")) +
   ggtitle("Westport Shoreline Movement") +
   theme_minimal()
-tplot
+ecology_plot
 ###
 
 ## Rates for 
-minirates <- t %>%
+ecology_rates <- ecology_stations %>%
   filter(year %in% c("06", "21", "22")) %>%
   filter(profile != 17 | year != "21") %>%
   group_by(profile) %>%
