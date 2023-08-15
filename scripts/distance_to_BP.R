@@ -20,9 +20,10 @@ tplot <- ggplot(t, aes(year, feet_to_BP, group = Park, color = Park)) +
   geom_line() +
   geom_smooth() +
   xlab("Year") +
-  ylab("Distance in feet from BasePoint") + 
+  ylab("Distance (feet) from fixed point") + 
   guides(fill=guide_legend(title="")) +
-  ggtitle("Distance from Baseline")
+  ggtitle("Westport Shoreline Movement") +
+  theme_minimal()
 tplot
 ###
 

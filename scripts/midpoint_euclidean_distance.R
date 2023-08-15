@@ -84,8 +84,7 @@ midpoint.euc.dist.plot <- ggplot(toplot %>% drop_na(),
   geom_smooth(method = "lm", se = TRUE, color="black") +
   xlab("Year") +
   ylab("Distance in feet from BasePoint") + 
-  theme(axis.text.x = element_blank(),
-        axis.text.y = element_blank()) +
+  theme(axis.text.y = element_blank()) +
   guides(fill=guide_legend(title="")) +
   ggtitle("Net Accretion or Erosion per Profile")
 midpoint.euc.dist.plot

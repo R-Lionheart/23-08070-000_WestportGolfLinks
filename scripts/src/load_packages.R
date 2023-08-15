@@ -5,9 +5,9 @@
 required_Packages_Install <- c("broom",
                                "data.table",
                                "factoextra",
+                               "ggthemes",
                                "kableExtra",
                                "plotly",
-                               #"reticulate",
                                "tidyverse")
 
 for(Package in required_Packages_Install) {
