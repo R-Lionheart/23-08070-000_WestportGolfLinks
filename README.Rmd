@@ -64,8 +64,6 @@ If you do not have access to the data, please contact the emails listed at the b
 
 Below is a list of packages and external softwares that this project utilizes.
 
-*\<Optional: Include a "typical imports" list.\>*
-
 ```{r packages, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 packages.table <- "
 |Name          | Description           
@@ -77,8 +75,6 @@ cat(packages.table)
 ```
 
 ## :computer: Installation and Usage {#installation-and-usage}
-
-*\<Ensure any installation specifics are listed here: versions, environments, etc.\>*
 
 In order to run this script and recreate the analysis, you will need to have R and Rstudio installed on your computer.
 All the data produced by this analysis can be found in the data_secondary/ folder, while all figures can be found in the figures/ directory.
