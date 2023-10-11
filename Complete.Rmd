@@ -1,122 +1,12 @@
 
-# Overview
-
-## Project description
-
-This analysis aims to characterize approximately 25 years of shoreline profile transect data, provided by NANOOS (Northwest Association of Networked Ocean Observing Systems).
-
-This repository focuses specifically on Westport Light State Park, profiles 16 and 17 drawn from raw data consisting of approximately 4500 individual profiles across 54 coastal sites in Washington and Oregon.
-
-The profiles are in x y z format (Easting Northing elevation).The naming convention is prof_X_ssYY.out where prof is short for profile, X is the profile number, ss is a season code (e.g. f = fall) and YY is the year, in the format of the last two digits (e.g. "98" is 1998", "00" is 2000, "08" is 2008, etc).
-
-## Data discrepancies
-
-Profiles that are null are removed. 
-A small portion of the profiles had non-conforming filenames: "BigE06", "beachface", etc.
-These files do not represent a large percentage of the files and have not been included in the analysis.
-
-Profiles 42 - 47 are in Oregon and have been excluded from most of the analysis.
-
-*Geographically, profiles do not proceed sequentially.*
-
-## Metadata
-
-The vertical datum is NAVD88.
-The horizontal is WA State Plane South.
-All of the units are in meters.
-
-**The profiles are converted to feet/year for this Westport analysis. They are in meters/year for the WA State analysis.**
 
 ```{r load_packages, include=FALSE, echo=FALSE, results='hide'}
 ## Load required packages
 source("scripts/src/load_packages.R")
 ```
 
-```{r examine_profiles, echo=FALSE, include=FALSE}
-source("scripts/examine_profiles.R")
-```
-
-## List of profiles and their geographic locations
-
-```{r profile_location}
-profiles.w.location %>% 
-  knitr::kable(
-    caption = "Profiles with Corresponding Geographic Location",
-    format = "latex",
-    booktabs = TRUE,
-    longtable = TRUE,
-    linesep = "",
-    align = "l"
-    ) %>%
-  kableExtra::kable_styling(
-      position = "left",
-      latex_options = c("striped", "repeat_header"),
-      stripe_color = "gray!15",
-      fixed_thead = TRUE
-    )
-profiles.w.location %>%
-  filter(profile %in% c(16, 17))
-```
-
-# Individual profiles, single year visualization
-
-Below is a rendering of a single profile for a single year.
-
-This is a direct plot of the x y z coordinates to understand the general idea of the data format.
-It is *not* a geographic representation of the data.
-
-```{r single_profile_visualization, echo=FALSE}
-## Modify profile.pattern to select a given profile
-profile.pattern <- "prof_16"
-
-## Modify year.pattern to select a given year
-year.pattern <- c("99")
-
-## Render the chosen profile in 3D
-source("scripts/single_profile_3D.R")
-
-suppressWarnings(single.profile.plot)
-```
-
-# Individual profiles, all available years visualization
-
-Below is a rendering of a single profile.
-The orange horizontal plane represents the approximate mean high high water (MHHW) mark, as a proxy for understanding how the transect data is shifting over time.
-
-```{r complete_profile_visualization, echo=FALSE}
-profile.pattern <- "prof_17"
-
-source("scripts/complete_profile_plane.R")
-
-suppressWarnings(print(complete.profile.plot))
-```
-
-## Times series representation
-
-It can also be helpful to see the above plot spread over time, to provide a clearer picture of profile migration.
-
-```{r complete_profile_timeseries, echo=FALSE}
-profile.pattern <- "prof_16"
-
-source("scripts/complete_profile_timeseries.R")
-
-suppressWarnings(print(profile.timeseries.fig))
-write.csv(prof.data, "data_secondary/python_profiles.csv", row.names = FALSE)
-
-```
-
-```{r profiles over years}
-source("scripts/profiles_over_years.R")
-profile.plot
-```
 
 # The "BasePoint" reference line and Euclidean distance as an accretion/erosion proxy
-
-In order to quantify shoreline change, an arbitrary "BasePoint" reference line, approximately parallel to the shoreline, was drawn at a reasonable distance from the profiles so as to be unaffected by temporal change.
-
-The NANOOS profiles are perpendicular to this BasePoint, allowing for a reference against which to calculate spatial change.
-
-To visualize this concept, the images below display 1) a simplified selection of profiles (plotted in black) compared to the BasePoint (plotted in red) and 2) an individual profile (plotted in black) and its BasePoint (plotted in red).
 
 ```{r profiles_BasePoint, echo=FALSE}
 source("scripts/profiles_and_BasePoint.R")
@@ -183,7 +73,7 @@ EucDist2 is the more recent year, and EucDist1 is the older year. This is calcul
 For each profile, the average rate of change (ROC) between all quartiles is taken. 
 
 ```{r rates_of_change, echo=FALSE}
-profile.pattern <- "prof_17"
+profile.pattern <- "prof_16"
 source("scripts/rates_of_change.R")
 profile.ROC.plot
 annualized.median.plot

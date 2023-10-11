@@ -10,12 +10,6 @@ editor: visual
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-TODO: BADGES ![dumbbell_plot](https://img.shields.io/badge/plot-dumbbell-%231D455C) ![boxplot](https://img.shields.io/badge/plot-boxplot-%231D455C) ![3D_regression](https://img.shields.io/badge/plot-3D%20regression-%231D455C)
-
-![quartiles](https://img.shields.io/badge/stats-quartiles-%233ECDA3) ![HCA_clustering](https://img.shields.io/badge/stats-HCA%20clustering-%233ECDA3) ![linear_model](https://img.shields.io/badge/stats-linear%20model-%233ECDA3)
-
-![code_style](https://img.shields.io/badge/style-needs%20checking-red)
-
 > Herrera Environmental Consultants: Placeholder for our logo or consistent header
 
 ## Questions
@@ -74,11 +68,10 @@ site.one <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022")
                     position = "one")
 distance_m = c(322.55, 317.65, 311.69, 309.64, 316.66, 319.76)
 distance_f <- distance_m * 3.28084
-distance_f 
-
 site.one <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                     distance_f,
                     position = "one")
+
 ```
 
 Site Two sample site measurements (inflection point)
@@ -91,7 +84,7 @@ distance_m = c(328.97, 332.19, 333.04, 331.54, 335.62, 337.26)
 distance_f <- distance_m * 3.28084
 site.two <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
                     distance_f,
-                    position = "one")
+                    position = "two")
 ```
 
 Site Three sample site measurements
@@ -101,8 +94,10 @@ site.three <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022
                          distance_m = c(324.20, 328.34, 328.67, 331.95, 337.12, 340.37), 
                          position = "three")
 distance_m = c(324.20, 328.34, 328.67, 331.95, 337.12, 340.37)
-distance_f
-converted <- distance_m * 3.28084
+distance_f <- distance_m * 3.28084
+site.three <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
+                    distance_f,
+                    position = "three")
 ```
 
 Site Four sample site measurements
@@ -112,7 +107,10 @@ site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"
                          distance_m = c(316.12, 322.01, 323.54, 335.46, 339.06, 341.74), 
                          position = "four")
 distance_m = c(316.12, 322.01, 323.54, 335.46, 339.06, 341.74)
-converted <- distance_m * 3.28084
+distance_f <- distance_m * 3.28084
+site.four <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
+                    distance_f,
+                    position = "four")
 ```
 
 Site Five sample site measurements
@@ -122,7 +120,10 @@ site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"
                          distance_m = c(301.69, 311.98, 310.65, 332.11, 336.56, 336.16), 
                          position = "five")
 distance_m = c(301.69, 311.98, 310.65, 332.11, 336.56, 336.16)
-converted <- distance_m * 3.28084
+distance_f <- distance_m * 3.28084
+site.five <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
+                    distance_f,
+                    position = "five")
 ```
 
 Site Six site measurements
@@ -131,9 +132,11 @@ Site Six site measurements
 site.six <- data.frame(year = c("2006", "2009", "2011", "2016", "2020", "2022"),
                  distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42), 
                  position = "six")
-
 distance_m = c(305.00, 308.49, 313.71, 338.23, 344.00, 348.42)
-converted <- distance_m * 3.28084
+distance_f <- distance_m * 3.28084
+site.six <- data.frame(year =  c("2006", "2009", "2011", "2016", "2020", "2022"),
+                    distance_f,
+                    position = "six")
 ```
 
 Combine all locations to one data frame for calculations.
@@ -145,6 +148,8 @@ distance_to_baseline$year <- factor(distance_to_baseline$year,
                                     levels = c("2006", "2009", "2011", "2016", "2020", "2022"))
 distance_to_baseline$position <- factor(distance_to_baseline$position, 
                                         levels = c("one", "two", "three", "four", "five", "six"))
+
+distance_wide <- pivot_wider(distance_to_baseline,names_from = year, values_from = distance_f)
 ```
 
 ## Create plots
@@ -152,14 +157,15 @@ distance_to_baseline$position <- factor(distance_to_baseline$position,
 Plot distance by year
 
 ```{r}
-distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_m, x=year, color=position)) +
+distance.plot <- ggplot(distance_to_baseline, aes(group=position, y=distance_f, x=year, color=position)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
   scale_color_manual(values = c('#5C4E2C', '#395C51', "#036C88", "#36A886","#04A1FF", "#DBA827"), 
                      name = "Geographic location") +
   xlab("Year") + 
-  ylab("Distance from Basepoint (m)") +
-  ggtitle("Overall Distance (m)")
+  ylab("Distance from Basepoint (feet)") +
+  ggtitle("Overall Distance (feet)")
+distance.plot
 ```
 
 Calculate rates of change (ROC) at each location
@@ -168,7 +174,7 @@ Calculate rates of change (ROC) at each location
 ROC <- distance_to_baseline %>% 
   group_by(position) %>% 
   arrange(position, year) %>% 
-  mutate(rate = 100 * (distance_m - lag(distance_m))/lag(distance_m)) %>%
+  mutate(rate = 100 * (distance_f - lag(distance_f))/lag(distance_f)) %>%
   drop_na()
 ```
 
@@ -181,8 +187,9 @@ ROC.plot <- ggplot(data=ROC, aes(x=year, y=rate, group=position, color = positio
   scale_color_manual(values = c('#5C4E2C', '#395C51', "#036C88", "#36A886","#04A1FF", "#DBA827"), 
                      name = "Geographic location") +
   xlab("Year") + 
-  ylab("Rate of Change (m/year)") +
-  ggtitle("Rate of Change (m/year)")
+  ylab("Rate of Change (feet/year)") +
+  ggtitle("Rate of Change (feet/year)")
+ROC.plot
 ```
 
 ## Combine plots
@@ -200,7 +207,7 @@ distance_to_baseline$year <- as.numeric(as.character(distance_to_baseline$year))
 prediction <- distance_to_baseline %>%
   group_by(position) %>%
   mutate(time_diff = max(year) - min(year),
-         distance_diff = distance_m[year == 2022] - distance_m[year == 2006],
+         distance_diff = distance_f[year == 2022] - distance_f[year == 2006],
          m_change_per_year = round(distance_diff / time_diff),
          year_15_erosion = m_change_per_year * 15,
          year_25_erosion = m_change_per_year * 25) %>%
@@ -222,4 +229,4 @@ wavelength <- data.frame(site =  seq(1:6),
 avg.wavelength <- mean(wavelength$wavelength)
 ```
 
-## Additional transects added between dyanmic revetment "headland" and inflection point.
+## 

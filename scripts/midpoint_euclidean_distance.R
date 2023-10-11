@@ -1,5 +1,4 @@
-## RLionheart
-## Shoreline Conservation Areas, Washington State Parks
+
 
 profile.pattern <- "prof_16|prof_17"
 source("scripts/src/assign_profile_parks.R")
@@ -28,6 +27,7 @@ euclidean <- complete.profile %>%
                                               "37", "49", "38", "50", "39", "40",
                                               "51", "52", "41", "53", "54", "42",
                                               "43", "44", "45", "46", "47")))
+
 
 ### Extract equation parameters
 equation.details <- euclidean %>%
