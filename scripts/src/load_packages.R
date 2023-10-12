@@ -10,7 +10,8 @@ required_Packages_Install <- c("broom",
                                "ggthemes",
                                "kableExtra",
                                "plotly",
-                               "tidyverse")
+                               "tidyverse",
+                               "viridis")
 
 for(Package in required_Packages_Install) {
   if(!require(Package,character.only = TRUE)) { 
