@@ -8,9 +8,11 @@ Therefore, this characterization of the profiles is a poor representation and sh
 Action
 1. Reviewed Westport_Report.qmd and ensured that is all correct and is reproducible. Westport_Report.qmd, along with Satellite_shoreline_change.R, exclusively manages the satellite data and draws conclusions from those measured points.
 
+2. Visually inspected distribution of profiles and will use only years 2002 - 2021 due to visual data quality.
+
 To complete:
 
-Review Table 1. Ensure that this data is not useful before replacing it. 
+Review Table 1. Ensure that this data is not useful before replacing it (and save it anyway).
 Clearly visualize the southern transect data. The shape is very different from the northern one, ie, the southern one has a giant bump in the middle that the north lacks. Is the data itself too poor to use? Is it too variable? Has the measurement method changed enough that drawing conclusions across years is useless? Is the midpoint actually not lying, it's just that the beach itself is prograding while the dunes are being eroded? Perhaps the data simply does not contain the phenomenon we need? 
 
 Decide on the above question. If the quality is good, come up with a SIMPLE AND FAST way to better characterize the data. Can we show the difference?
