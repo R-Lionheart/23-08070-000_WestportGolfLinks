@@ -5,7 +5,7 @@ profile.pattern <- "prof_16|prof_17"
 source("scripts/src/assign_profile_parks.R")
 
 
-### test
+### Midpoint distance to baseline
 ecology_stations <- complete.profile %>%
   group_by(profile, year) %>%
   mutate(xmean = mean(x),

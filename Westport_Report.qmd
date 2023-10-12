@@ -10,13 +10,11 @@ editor: visual
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-> Herrera Environmental Consultants: Placeholder for our logo or consistent header
-
 ## Questions
 
 1.  15 year R0 is one wavelength, taken from average wavelengths at all six locations, value of 63 m.
 
-2.  Where did the 10ft/year R0 northern migration come from? I have it written down...
+2.  Where did the 10ft/year R0 northern migration come from? **Professional estimate?**
 
 3.  Using the value of 63 m, i.e in 15 years R0 will have migrated one wavelength north, that means a rate of 4.2 m/year, meaning the R0 in 25 years will be 105m. We are assuming limited protection from the logspiral, so the the apex of the curve is attributed to the 75 year linear expansion rate.
 

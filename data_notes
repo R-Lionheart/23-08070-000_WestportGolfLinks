@@ -1,13 +1,16 @@
-Below are the original dates with distance measurements from the June 1990 line,
-Google Earth Pro, for Westport. Decided to use only 2005 onwards. 
+Midpoint Characterization Issue Postmortem
 
+Problem
+Upon review, figure 15 of the report (depicting the distance in feet of the Department of Ecology transect midpoint from a fixed inland basepoint) was found to poorly represent the data. A mistake was made in the interpretation of the graph, describing the increasing distance of the southern transect as erosion, i.e., the midpoint is moving away from the basepoint. However, due to the inland location of the fixed point, this graph actually demonstrates high accretion, which is inaccurate from onsite location and satellite imagery. 
 
+Therefore, this characterization of the profiles is a poor representation and should not be used to model reality.
 
-Southern Point:
-Date: "6-1990", Distance: 302.47
+Action
+1. Reviewed Westport_Report.qmd and ensured that is all correct and is reproducible. Westport_Report.qmd, along with Satellite_shoreline_change.R, exclusively manages the satellite data and draws conclusions from those measured points.
 
-Northern Point
-Date: "6-1990", Distance: 241.23
+To complete:
 
-Original dates with months included
-c("7-2006", "9-2009", "9-2011", "8-2016", "3-2020", "8-2022")
+Review Table 1. Ensure that this data is not useful before replacing it. 
+Clearly visualize the southern transect data. The shape is very different from the northern one, ie, the southern one has a giant bump in the middle that the north lacks. Is the data itself too poor to use? Is it too variable? Has the measurement method changed enough that drawing conclusions across years is useless? Is the midpoint actually not lying, it's just that the beach itself is prograding while the dunes are being eroded? Perhaps the data simply does not contain the phenomenon we need? 
+
+Decide on the above question. If the quality is good, come up with a SIMPLE AND FAST way to better characterize the data. Can we show the difference?
