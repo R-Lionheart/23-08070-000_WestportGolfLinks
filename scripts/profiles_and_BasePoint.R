@@ -16,8 +16,7 @@ profile.midpoints <- complete.profile %>%
   group_by(profile, year) %>%
   mutate(x_midpoint = ((min(x) + max(x))/2)) %>%
   mutate(y_midpoint = ((min(y) + max(y))/2)) %>%
-  mutate(z_midpoint = ((min(z) + max(z))/2)
-)
+  mutate(z_midpoint = ((min(z) + max(z))/2))
 
 
 ## Timeseries
@@ -51,21 +50,6 @@ complete.profile2 <- complete.profile %>%
                      "18", "19", "20", "21", "22"))
 
 
-##Mock3d
-slant_factor = 1
-
-ggplot(complete.profile2 %>% filter(profile == 16), 
-       aes(x = x,
-           y = year, fill = year)) +
-  #geom_point(aes(x = BasePoint_X, y = year), color = "red", size = 3) +
-  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01, gradient_lwd = 1.) +
-  scale_y_discrete(expand = expand_scale(mult = c(0.01, 0.25)), limits=rev) +
-  labs(
-    title = "profile 16",
-    subtitle = 'Westport Profiles: 2002 - 2021'
-  ) +
-  theme_ridges(font_size = 13, grid = TRUE) + 
-  theme(axis.title.y = element_blank(), panel.grid.major.x = element_blank())
 
 ## Good final images
 prof16 <- complete.profile2 %>%
@@ -73,6 +57,8 @@ prof16 <- complete.profile2 %>%
   select(profile, year, x, y, z) %>%
   filter(profile == 16) 
 
+
+tiff("Northern.tiff", units="in", width=6, height=5, res=300)
 ggplot(prof16, aes(x, year, height = z, fill = year)) + 
   geom_ridgeline() +
   scale_y_discrete(limits=rev) +
@@ -86,35 +72,26 @@ ggplot(prof16, aes(x, year, height = z, fill = year)) +
   ) +
   xlab("Easting Coordinates") +
   ylab("Year") +
-  geom_label(
-    label="Landward",
-    x=223485,
-    y=02,
-    label.padding = unit(0.55, "lines"), # Rectangle size around label
-    label.size = 0.25,
-    color = "black",
-    fill="#69b3a2"
-  ) +
-  geom_label(
-    label="Seaward",
-    x=223220,
-    y=02,
-    label.padding = unit(0.55, "lines"), # Rectangle size around label
-    label.size = 0.25,
-    color = "black",
-    fill="#69b3a2"
-  )
+  annotate(geom = "text", x = 223210, y = 001, 
+           label = "Seaward", color = "#482677FF") +
+  annotate(geom = "text", x = 223490, y = 001, 
+           label = "Landward", color = "#482677FF")
+
+dev.off()
+
+  
 
 prof17 <- complete.profile2 %>%
   filter(season == "f") %>%
   select(profile, year, x, y, z) %>%
   filter(profile == 17) 
 
+tiff("Southern.tiff", units="in", width=6, height=5, res=300)
 ggplot(prof17, aes(x, year, height = z, fill = year)) + 
   geom_ridgeline() +
   scale_y_discrete(limits=rev) +
   scale_fill_viridis(discrete = TRUE, option = "D")+
-  xlim(223550, 223850) +
+  xlim(223500, 223850) +
   theme_gdocs() +
   theme(legend.position = "none") +
   labs(
@@ -122,4 +99,9 @@ ggplot(prof17, aes(x, year, height = z, fill = year)) +
     subtitle = 'Westport Profiles: 2002 - 2021'
   ) +
   xlab("Easting Coordinates") +
-  ylab("Year") 
+  ylab("Year")  +
+  annotate(geom = "text", x = 223525, y = 001, 
+           label = "Seaward", color = "#482677FF") +
+  annotate(geom = "text", x = 223825, y = 001, 
+           label = "Landward", color = "#482677FF")
+dev.off()
