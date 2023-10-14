@@ -67,7 +67,7 @@ ggplot(prof16, aes(x, year, height = z, fill = year)) +
   theme_gdocs() +
   theme(legend.position = "none") +
   labs(
-    title = "Northern Location",
+    title = "Northern Location: HD-1",
     subtitle = 'Westport Profiles: 2002 - 2021'
   ) +
   xlab("Easting Coordinates") +
@@ -86,7 +86,7 @@ prof17 <- complete.profile2 %>%
   select(profile, year, x, y, z) %>%
   filter(profile == 17) 
 
-tiff("Southern.tiff", units="in", width=6, height=5, res=300)
+tiff("Southern.jpg", units="in", width=6, height=5, res=300)
 ggplot(prof17, aes(x, year, height = z, fill = year)) + 
   geom_ridgeline() +
   scale_y_discrete(limits=rev) +
@@ -95,7 +95,7 @@ ggplot(prof17, aes(x, year, height = z, fill = year)) +
   theme_gdocs() +
   theme(legend.position = "none") +
   labs(
-    title = "Southern Location",
+    title = "Southern Location: WORM",
     subtitle = 'Westport Profiles: 2002 - 2021'
   ) +
   xlab("Easting Coordinates") +
